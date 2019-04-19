@@ -1,12 +1,14 @@
 version: 2.1
 jobs:
-  docker:
-      - image: circleci/node:11.13.0-jessie-slim
   build:
+    docker:
+      - image: circleci/node:11.13.0-jessie-slim
     steps:
       - checkout
       - run: bash ./build.sh
   test:
+    docker:
+      - image: circleci/node:11.13.0-jessie-slim
     steps:
       - checkout
       - run: bash ./test.sh
