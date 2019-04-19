@@ -12,7 +12,8 @@ jobs:
     steps:
       - checkout
       - run: "bash ./test.sh"
-workflows:
+      - context: stage
+  rkflows:
   version: 2
   build_and_test:
     jobs:
