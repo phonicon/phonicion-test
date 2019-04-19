@@ -1,4 +1,3 @@
 #!/bin/bash
-echo "build"
-
+echo "test"
 env
