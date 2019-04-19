@@ -5,12 +5,13 @@ jobs:
       - image: circleci/node:4.8.2-jessie
     steps:
       - checkout
-      - run: bash ./build.sh
+      - run: "bash ./build.sh"
   test:
     docker:
       - image: circleci/node:4.8.2-jessie
+    steps:
       - checkout
-      - run: bash ./test.sh
+      - run: "bash ./test.sh"
 workflows:
   version: 2
   build_and_test:
