@@ -13,7 +13,6 @@ jobs:
       - checkout
       - run: "bash ./test.sh"
   deploy:
-    
     docker:
       - image: circleci/node:jessie
     steps:
@@ -25,7 +24,8 @@ workflows:
   build_and_test:
     jobs:
       - build
-      - test:
+      = test
+      - deploy:
          context: stage
          filters:
           branches:
