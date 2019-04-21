@@ -12,22 +12,35 @@ jobs:
     steps:
       - checkout
       - run: "bash ./test.sh"
-  deploy:
+  deploy-stage:
     docker:
       - image: circleci/node:jessie
     steps:
       - checkout
       - run: "bash ./deploy.sh"
-    
+    context: stage
+  deploy-prod:
+    docker:
+      - image: circleci/node:jessie
+    steps:
+      - checkout
+      - run: "bash ./deploy.sh"
+    context: prod
 workflows:
   version: 2
   build_and_test:
     jobs:
       - build
       - test
-      - deploy:
+      - deploy-stage:
          context: stage
          filters:
           branches:
            only:
-              - master        
+              - stage
+      - deploy-prod:
+         context: prod
+         filters:
+          branches:
+           only:
+              - master 
