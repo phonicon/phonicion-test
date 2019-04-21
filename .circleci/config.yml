@@ -35,11 +35,10 @@ workflows:
          filters:
           branches:
            only:
-              - stage
+              - staging
       - deploy-prod:
          context: prod
          filters:
           branches:
            only:
               - master
-              
