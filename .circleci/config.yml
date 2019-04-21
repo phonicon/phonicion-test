@@ -24,7 +24,7 @@ workflows:
   build_and_test:
     jobs:
       - build
-      = test
+      - test
       - deploy:
          context: stage
          filters:
